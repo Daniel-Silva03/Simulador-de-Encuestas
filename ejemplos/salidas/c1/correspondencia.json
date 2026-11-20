@@ -1,0 +1,774 @@
+{
+ "binding": {
+  "config": {
+   "correspondence_yaml_sha256": "1816c949bcabe6601e642c8ece63c129d4b506f9bea2a512ea1b556c23868a94",
+   "lexicon_sha256": "8f78f4af867cb422fa5df721ffd335a65b06ff304acd5edd77ff5aba826df607",
+   "ruleset_version": "1.1.0",
+   "semantics_sha256": "99960a4af968cd2cbe558e3e0f5994a83de6a073aa0930a77ab15ec43bfb7363"
+  },
+  "inputs": {
+   "design_sha256": "ccf0a6e248c6e5fef1f0a36dd554deeb4f0a49945a189ecf837f8efb8f0aacde",
+   "program_sha256": "31890ad5ab8be5f2e447cf8b32a08e6df845f83595a555a025ef07a24403b1fe"
+  },
+  "versions": {
+   "correspondence": "0.1.0",
+   "expr_parser": "0.1.0",
+   "gim_adapter": "0.3.0",
+   "word_adapter": "0.4.0"
+  }
+ },
+ "comparison": {
+  "conditions": [],
+  "enabled": false,
+  "findings": [],
+  "findings_by_level": {
+   "error_comprobado": 0,
+   "no_verificable": 0,
+   "sospecha": 0
+  },
+  "limitations": [
+   "comparación no habilitada: solo se muestra el emparejamiento en modo diagnóstico"
+  ]
+ },
+ "equivalences_file": null,
+ "files": {
+  "correspondencia.md": "bf89febe2651ce21ce1c52c167c41c2ab770c8b47124499baa128d2d15b49d79",
+  "correspondencia.xlsx": "537cd56a36d10127e10e0789e2aa71f7e22cff932133221ed71e3b5297e3faa7",
+  "plantilla_equivalencias.yaml": "389ab2a8fa5355570fd6631691661b2f3c407c7719052419a9295146dde1c51a",
+  "plantilla_pareos.yaml": "3fb212188261183c7d64b2495f142acaacc76ea0cbccc0c91071b92c08e1e307"
+ },
+ "identity": {
+  "advisory": [],
+  "backing": "inferred",
+  "blocking": [
+   {
+    "document": "design",
+    "id": "ed0bd72b1f21f9a5",
+    "informative": false,
+    "location": "study.title~study_code",
+    "reason": "inferred_observation",
+    "review": "verify_value_manually",
+    "signal": "study_code",
+    "signal_key": "study_code|study.title~study_code|study.title~study_code",
+    "status": "open"
+   },
+   {
+    "document": "program",
+    "id": "74095713c205a3b9",
+    "informative": false,
+    "location": "study.title~study_code",
+    "reason": "inferred_observation",
+    "review": "verify_value_manually",
+    "signal": "study_code",
+    "signal_key": "study_code|study.title~study_code|study.title~study_code",
+    "status": "open"
+   },
+   {
+    "document": "design",
+    "id": "828728690457f893",
+    "informative": false,
+    "location": "document",
+    "reason": "incomplete_search_scope",
+    "review": "confirm_search_scope",
+    "signal": "instrument_id",
+    "signal_key": "instrument_id|-",
+    "status": "open"
+   },
+   {
+    "document": "program",
+    "id": "4d736110591c6555",
+    "informative": false,
+    "location": "document",
+    "reason": "incomplete_search_scope",
+    "review": "confirm_search_scope",
+    "signal": "instrument_id",
+    "signal_key": "instrument_id|-",
+    "status": "open"
+   },
+   {
+    "document": "design",
+    "id": "c7f65924f4335432",
+    "informative": false,
+    "location": "source.name~wave_label+study.title~wave_label",
+    "reason": "heuristic_absence",
+    "review": "verify_absence_manually",
+    "signal": "wave_label",
+    "signal_key": "wave_label|-",
+    "status": "open"
+   },
+   {
+    "document": "design",
+    "id": "f1f27b55adf16d38",
+    "informative": false,
+    "location": "document",
+    "reason": "incomplete_search_scope",
+    "review": "confirm_search_scope",
+    "signal": "wave_label",
+    "signal_key": "wave_label|-",
+    "status": "open"
+   },
+   {
+    "document": "program",
+    "id": "f0293a1fc20d1278",
+    "informative": false,
+    "location": "study.title~wave_label+source.name~wave_label",
+    "reason": "heuristic_absence",
+    "review": "verify_absence_manually",
+    "signal": "wave_label",
+    "signal_key": "wave_label|-",
+    "status": "open"
+   },
+   {
+    "document": "program",
+    "id": "eb6385f8ca853e98",
+    "informative": false,
+    "location": "document",
+    "reason": "incomplete_search_scope",
+    "review": "confirm_search_scope",
+    "signal": "wave_label",
+    "signal_key": "wave_label|-",
+    "status": "open"
+   },
+   {
+    "document": "design",
+    "id": "2a07bc99288909e4",
+    "informative": false,
+    "location": "source.name~questionnaire_version+study.title~questionnaire_version",
+    "reason": "heuristic_absence",
+    "review": "verify_absence_manually",
+    "signal": "questionnaire_version",
+    "signal_key": "questionnaire_version|-",
+    "status": "open"
+   },
+   {
+    "document": "design",
+    "id": "5f836f0bc1dafa30",
+    "informative": false,
+    "location": "document",
+    "reason": "incomplete_search_scope",
+    "review": "confirm_search_scope",
+    "signal": "questionnaire_version",
+    "signal_key": "questionnaire_version|-",
+    "status": "open"
+   },
+   {
+    "document": "program",
+    "id": "5a29700e3cc6da19",
+    "informative": false,
+    "location": "study.title~questionnaire_version+source.name~questionnaire_version",
+    "reason": "heuristic_absence",
+    "review": "verify_absence_manually",
+    "signal": "questionnaire_version",
+    "signal_key": "questionnaire_version|-",
+    "status": "open"
+   },
+   {
+    "document": "program",
+    "id": "866acccebee8057a",
+    "informative": false,
+    "location": "document",
+    "reason": "incomplete_search_scope",
+    "review": "confirm_search_scope",
+    "signal": "questionnaire_version",
+    "signal_key": "questionnaire_version|-",
+    "status": "open"
+   },
+   {
+    "document": "design",
+    "id": "12e2b3c15054c5d5",
+    "informative": false,
+    "location": "source.name~phase_label+study.title~phase_label",
+    "reason": "heuristic_absence",
+    "review": "verify_absence_manually",
+    "signal": "phase_label",
+    "signal_key": "phase_label|-",
+    "status": "open"
+   },
+   {
+    "document": "design",
+    "id": "c52d39466ad04d19",
+    "informative": false,
+    "location": "document",
+    "reason": "incomplete_search_scope",
+    "review": "confirm_search_scope",
+    "signal": "phase_label",
+    "signal_key": "phase_label|-",
+    "status": "open"
+   },
+   {
+    "document": "program",
+    "id": "7cc4d6f3cab339c2",
+    "informative": false,
+    "location": "study.title~phase_label+source.name~phase_label",
+    "reason": "heuristic_absence",
+    "review": "verify_absence_manually",
+    "signal": "phase_label",
+    "signal_key": "phase_label|-",
+    "status": "open"
+   },
+   {
+    "document": "program",
+    "id": "ac258fa3eaeca461",
+    "informative": false,
+    "location": "document",
+    "reason": "incomplete_search_scope",
+    "review": "confirm_search_scope",
+    "signal": "phase_label",
+    "signal_key": "phase_label|-",
+    "status": "open"
+   }
+  ],
+  "comparison_enabled": false,
+  "composite_patterns_applied": [],
+  "declaration": null,
+  "extraction_findings": [],
+  "matching_level": "alto",
+  "note": "La evidencia de parejas de preguntas nunca prueba la identidad ni habilita la comparación (v1.1, §3.1).",
+  "observation_review": "review_required",
+  "resolution_rules": [],
+  "review_log": [],
+  "row": "coinciden_estudio_o_instrumento",
+  "signals": [
+   {
+    "assignment": {
+     "level": "study",
+     "pattern": null,
+     "ref": "identifier_levels.study",
+     "status": "inferred"
+    },
+    "key": "study_code|study.title~study_code|study.title~study_code",
+    "observation": {
+     "certainty": "inferred",
+     "per_document": {
+      "design": {
+       "absence_evidence": [
+        {
+         "location": "source.name~study_code",
+         "reason": "pattern_not_found"
+        }
+       ],
+       "coverage": "complete",
+       "found": [
+        {
+         "location": "study.title~study_code",
+         "value": {
+          "text": {
+           "length": 8
+          }
+         }
+        }
+       ],
+       "searched": [
+        {
+         "field": "source.name",
+         "location": "source.name~study_code",
+         "pattern": "study_code",
+         "read": true
+        },
+        {
+         "field": "study.title",
+         "location": "study.title~study_code",
+         "pattern": "study_code",
+         "read": true
+        }
+       ]
+      },
+      "program": {
+       "absence_evidence": [
+        {
+         "location": "source.name~study_code",
+         "reason": "pattern_not_found"
+        }
+       ],
+       "coverage": "complete",
+       "found": [
+        {
+         "location": "study.title~study_code",
+         "value": {
+          "text": {
+           "length": 8
+          }
+         }
+        }
+       ],
+       "searched": [
+        {
+         "field": "study.title",
+         "location": "study.title~study_code",
+         "pattern": "study_code",
+         "read": true
+        },
+        {
+         "field": "source.name",
+         "location": "source.name~study_code",
+         "pattern": "study_code",
+         "read": true
+        }
+       ]
+      }
+     },
+     "scope_basis": {
+      "ref": "identifier_levels.study",
+      "status": "inferred"
+     }
+    },
+    "pair": {
+     "design": {
+      "text": {
+       "length": 8
+      }
+     },
+     "program": {
+      "text": {
+       "length": 8
+      }
+     }
+    },
+    "state": "coincide",
+    "type": "study_code"
+   },
+   {
+    "assignment": null,
+    "key": "instrument_id|-",
+    "observation": {
+     "certainty": "explicit",
+     "per_document": {
+      "design": {
+       "absence_evidence": [
+        {
+         "location": "study.ids",
+         "reason": "field_empty"
+        }
+       ],
+       "coverage": "complete",
+       "found": null,
+       "searched": [
+        {
+         "field": "study.ids",
+         "location": "study.ids",
+         "pattern": null,
+         "read": true
+        }
+       ]
+      },
+      "program": {
+       "absence_evidence": [
+        {
+         "location": "study.ids",
+         "reason": "field_empty"
+        }
+       ],
+       "coverage": "complete",
+       "found": null,
+       "searched": [
+        {
+         "field": "study.ids",
+         "location": "study.ids",
+         "pattern": null,
+         "read": true
+        }
+       ]
+      }
+     },
+     "scope_basis": {
+      "ref": "identifier_levels.instrument",
+      "status": "inferred"
+     }
+    },
+    "pair": null,
+    "state": "ausente",
+    "type": "instrument_id"
+   },
+   {
+    "assignment": null,
+    "key": "wave_label|-",
+    "observation": {
+     "certainty": "inferred",
+     "per_document": {
+      "design": {
+       "absence_evidence": [
+        {
+         "location": "source.name~wave_label",
+         "reason": "pattern_not_found"
+        },
+        {
+         "location": "study.title~wave_label",
+         "reason": "pattern_not_found"
+        }
+       ],
+       "coverage": "complete",
+       "found": null,
+       "searched": [
+        {
+         "field": "source.name",
+         "location": "source.name~wave_label",
+         "pattern": "wave_label",
+         "read": true
+        },
+        {
+         "field": "study.title",
+         "location": "study.title~wave_label",
+         "pattern": "wave_label",
+         "read": true
+        }
+       ]
+      },
+      "program": {
+       "absence_evidence": [
+        {
+         "location": "study.title~wave_label",
+         "reason": "pattern_not_found"
+        },
+        {
+         "location": "source.name~wave_label",
+         "reason": "pattern_not_found"
+        }
+       ],
+       "coverage": "complete",
+       "found": null,
+       "searched": [
+        {
+         "field": "study.title",
+         "location": "study.title~wave_label",
+         "pattern": "wave_label",
+         "read": true
+        },
+        {
+         "field": "source.name",
+         "location": "source.name~wave_label",
+         "pattern": "wave_label",
+         "read": true
+        }
+       ]
+      }
+     },
+     "scope_basis": {
+      "ref": "identifier_levels.wave_or_version",
+      "status": "inferred"
+     }
+    },
+    "pair": null,
+    "state": "ausente",
+    "type": "wave_label"
+   },
+   {
+    "assignment": null,
+    "key": "questionnaire_version|-",
+    "observation": {
+     "certainty": "inferred",
+     "per_document": {
+      "design": {
+       "absence_evidence": [
+        {
+         "location": "source.name~questionnaire_version",
+         "reason": "pattern_not_found"
+        },
+        {
+         "location": "study.title~questionnaire_version",
+         "reason": "pattern_not_found"
+        }
+       ],
+       "coverage": "complete",
+       "found": null,
+       "searched": [
+        {
+         "field": "source.name",
+         "location": "source.name~questionnaire_version",
+         "pattern": "questionnaire_version",
+         "read": true
+        },
+        {
+         "field": "study.title",
+         "location": "study.title~questionnaire_version",
+         "pattern": "questionnaire_version",
+         "read": true
+        }
+       ]
+      },
+      "program": {
+       "absence_evidence": [
+        {
+         "location": "study.title~questionnaire_version",
+         "reason": "pattern_not_found"
+        },
+        {
+         "location": "source.name~questionnaire_version",
+         "reason": "pattern_not_found"
+        }
+       ],
+       "coverage": "complete",
+       "found": null,
+       "searched": [
+        {
+         "field": "study.title",
+         "location": "study.title~questionnaire_version",
+         "pattern": "questionnaire_version",
+         "read": true
+        },
+        {
+         "field": "source.name",
+         "location": "source.name~questionnaire_version",
+         "pattern": "questionnaire_version",
+         "read": true
+        }
+       ]
+      }
+     },
+     "scope_basis": {
+      "ref": "identifier_levels.wave_or_version",
+      "status": "inferred"
+     }
+    },
+    "pair": null,
+    "state": "ausente",
+    "type": "questionnaire_version"
+   },
+   {
+    "assignment": null,
+    "key": "phase_label|-",
+    "observation": {
+     "certainty": "inferred",
+     "per_document": {
+      "design": {
+       "absence_evidence": [
+        {
+         "location": "source.name~phase_label",
+         "reason": "pattern_not_found"
+        },
+        {
+         "location": "study.title~phase_label",
+         "reason": "pattern_not_found"
+        }
+       ],
+       "coverage": "complete",
+       "found": null,
+       "searched": [
+        {
+         "field": "source.name",
+         "location": "source.name~phase_label",
+         "pattern": "phase_label",
+         "read": true
+        },
+        {
+         "field": "study.title",
+         "location": "study.title~phase_label",
+         "pattern": "phase_label",
+         "read": true
+        }
+       ]
+      },
+      "program": {
+       "absence_evidence": [
+        {
+         "location": "study.title~phase_label",
+         "reason": "pattern_not_found"
+        },
+        {
+         "location": "source.name~phase_label",
+         "reason": "pattern_not_found"
+        }
+       ],
+       "coverage": "complete",
+       "found": null,
+       "searched": [
+        {
+         "field": "study.title",
+         "location": "study.title~phase_label",
+         "pattern": "phase_label",
+         "read": true
+        },
+        {
+         "field": "source.name",
+         "location": "source.name~phase_label",
+         "pattern": "phase_label",
+         "read": true
+        }
+       ]
+      }
+     },
+     "scope_basis": {
+      "ref": "identifier_levels.wave_or_version",
+      "status": "inferred"
+     }
+    },
+    "pair": null,
+    "state": "ausente",
+    "type": "phase_label"
+   },
+   {
+    "assignment": null,
+    "key": "title_metadata",
+    "observation": {
+     "certainty": "explicit",
+     "per_document": {
+      "design": {
+       "absence_evidence": [],
+       "coverage": "complete",
+       "found": [
+        {
+         "location": "study.title",
+         "value": {
+          "text": {
+           "length": 41
+          }
+         }
+        }
+       ],
+       "searched": [
+        {
+         "field": "study.title",
+         "location": "study.title",
+         "pattern": null,
+         "read": true
+        }
+       ]
+      },
+      "program": {
+       "absence_evidence": [],
+       "coverage": "complete",
+       "found": [
+        {
+         "location": "study.title",
+         "value": {
+          "text": {
+           "length": 41
+          }
+         }
+        }
+       ],
+       "searched": [
+        {
+         "field": "study.title",
+         "location": "study.title",
+         "pattern": null,
+         "read": true
+        }
+       ]
+      }
+     },
+     "scope_basis": null
+    },
+    "pair": {
+     "design": {
+      "text": {
+       "length": 41
+      }
+     },
+     "program": {
+      "text": {
+       "length": 41
+      }
+     }
+    },
+    "state": "coincide",
+    "type": "title_metadata"
+   }
+  ],
+  "signals_contradicted_by_declaration": [],
+  "source": "table",
+  "sustaining": [
+   "study_code|study.title~study_code|study.title~study_code"
+  ],
+  "unconfirmed_assignments": [
+   {
+    "label": "no confirmada",
+    "level": "study",
+    "pattern": null,
+    "signal_key": "study_code|study.title~study_code|study.title~study_code",
+    "status": "inferred"
+   }
+  ],
+  "verdict": "MISMO",
+  "verifications": [],
+  "warnings": []
+ },
+ "inputs": {
+  "design": {
+   "name": "transporte_cuestionario.docx",
+   "sha256": "ccf0a6e248c6e5fef1f0a36dd554deeb4f0a49945a189ecf837f8efb8f0aacde"
+  },
+  "program": {
+   "name": "transporte_programa_discrepante.gim",
+   "sha256": "31890ad5ab8be5f2e447cf8b32a08e6df845f83595a555a025ef07a24403b1fe"
+  }
+ },
+ "limitations": [
+  "Todas las asignaciones de identificadores y todas las hipótesis GIM están en inferred: sin declaración humana vigente no se habilita la comparación.",
+  "Las reglas GIM dependen de semántica no confirmada (D15): sus hallazgos son, como máximo, sospecha.",
+  "«Equivalente» exige pareja declarada y comparación habilitada (v1.1, §3.2 y §5.1); con valores vacíos sin política confirmada la enumeración da U y el resultado es no verificable.",
+  "Los umbrales de emparejamiento están calibrados con pares sintéticos (v1.0, 7.2).",
+  "Las salidas no contienen texto del instrumento salvo con --include-text."
+ ],
+ "matching": {
+  "ambiguous": [],
+  "declared_invalid": [],
+  "declared_pairs_file": null,
+  "excluded_program_system_paradata": [],
+  "mode": "diagnóstico",
+  "n_design": 4,
+  "n_program": 4,
+  "notes": [],
+  "only_design": [
+   "P3"
+  ],
+  "only_program": [
+   "P5"
+  ],
+  "pairs": [
+   {
+    "class": "IDENTICA",
+    "conclusive_equivalence_allowed": false,
+    "design": "P1",
+    "parts": {
+     "options": 1.0,
+     "text": 1.0,
+     "type": 1.0
+    },
+    "program": "P1",
+    "score": 1.0,
+    "state": "evidencia_exacta"
+   },
+   {
+    "class": "MODIFICADA",
+    "conclusive_equivalence_allowed": false,
+    "design": "P2",
+    "parts": {
+     "options": 0.75,
+     "text": 1.0,
+     "type": 1.0
+    },
+    "program": "P2",
+    "score": 0.9,
+    "state": "evidencia_exacta"
+   },
+   {
+    "class": "MODIFICADA",
+    "conclusive_equivalence_allowed": false,
+    "design": "P4",
+    "parts": {
+     "options": 0.8,
+     "text": 1.0,
+     "type": 1.0
+    },
+    "program": "P4",
+    "score": 0.92,
+    "state": "evidencia_exacta"
+   }
+  ],
+  "ratio": 0.75,
+  "same_label_different_content": []
+ },
+ "privacy": {
+  "include_text": false,
+  "key_fingerprint": null,
+  "mode": "none",
+  "policy": "AUT-1: informes minimizados; HMAC-SHA256 solo con clave local; sin clave, sin hash"
+ },
+ "result": "CORRESPONDENCIA PROVISIONAL",
+ "survey_simulator": {
+  "correspondence_version": "0.1.0",
+  "norma": "especificación v1.0 + documento de cambios v1.1",
+  "report": "correspondencia",
+  "ruleset_version": "1.1.0"
+ }
+}

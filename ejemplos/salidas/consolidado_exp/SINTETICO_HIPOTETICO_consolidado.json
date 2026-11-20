@@ -1,0 +1,513 @@
+{
+ "HIPOTETICO": true,
+ "SINTETICO": true,
+ "aviso": "Contiene resultados de simulación sintética. No son observaciones, resultados ni estimaciones reales.",
+ "binding": {
+  "config": {
+   "correspondence_yaml_sha256": "1816c949bcabe6601e642c8ece63c129d4b506f9bea2a512ea1b556c23868a94",
+   "lexicon_sha256": "8f78f4af867cb422fa5df721ffd335a65b06ff304acd5edd77ff5aba826df607",
+   "ruleset_version": "1.1.0",
+   "semantics_sha256": "99960a4af968cd2cbe558e3e0f5994a83de6a073aa0930a77ab15ec43bfb7363"
+  },
+  "inputs": {
+   "design_sha256": "ccf0a6e248c6e5fef1f0a36dd554deeb4f0a49945a189ecf837f8efb8f0aacde",
+   "program_sha256": "31890ad5ab8be5f2e447cf8b32a08e6df845f83595a555a025ef07a24403b1fe"
+  },
+  "versions": {
+   "correspondence": "0.1.0",
+   "expr_parser": "0.1.0",
+   "gim_adapter": "0.3.0",
+   "word_adapter": "0.4.0"
+  }
+ },
+ "config_sha256": {
+  "equivalences_sha256": "33c5111ab35c32f89a9486be7b536571980f441e0423c31f54d8265780093107",
+  "pairs_sha256": "eb4f032c73bef820b436f6707d378cbd185a37a9cd7c56827816097755f9aaa9",
+  "scenario_sha256": null
+ },
+ "correspondence": {
+  "conditions": [
+   {
+    "check": "pair:salto",
+    "counterexample": null,
+    "depends_on_unconfirmed": [
+     "saltos"
+    ],
+    "limits": {
+     "complete": false,
+     "domain_size": null,
+     "enumeration_limit": 10000,
+     "evaluated": 0
+    },
+    "method": "estructural",
+    "pair": [
+     "P1",
+     "P1"
+    ],
+    "pair_state": "declarada",
+    "prerequisites": {
+     "comparison_enabled": true,
+     "item_pair_declared": true,
+     "variable_pairs_declared": true
+    },
+    "reasons": [],
+    "result": "equivalente",
+    "variables": [
+     {
+      "canon": "V001",
+      "design": "P1",
+      "pair_declared": true,
+      "program": "P1"
+     }
+    ],
+    "what": "salto de P1 hacia P4"
+   },
+   {
+    "check": "pair:filtro",
+    "counterexample": {
+     "assignment": {
+      "V001": "codigo:1"
+     },
+     "design": "V",
+     "program": "F"
+    },
+    "depends_on_unconfirmed": [
+     "design:universe",
+     "filtros"
+    ],
+    "limits": {
+     "complete": false,
+     "domain_size": 5,
+     "enumeration_limit": 10000,
+     "evaluated": 1
+    },
+    "method": "enumeracion",
+    "pair": [
+     "P2",
+     "P2"
+    ],
+    "pair_state": "declarada",
+    "prerequisites": {
+     "comparison_enabled": true,
+     "item_pair_declared": true,
+     "variable_pairs_declared": true
+    },
+    "reasons": [],
+    "result": "diferente",
+    "variables": [
+     {
+      "canon": "V001",
+      "design": "P1",
+      "pair_declared": true,
+      "program": "P1"
+     }
+    ],
+    "what": "presentación de P2 / P2"
+   }
+  ],
+  "findings": [
+   {
+    "category": "item_faltante_o_sobrante",
+    "check_id": "pair:solo_diseno",
+    "depends_on_unconfirmed": [],
+    "evidence_level": "no_verificable",
+    "explanation": "La pregunta P3 del diseño no tiene pareja en el programa (SOLO_DISENO).",
+    "heuristic": false,
+    "id": "1960cc5e4dc1f33908b6d3e267ef7da03f3bd697f98ea1e72ec09e7f3adde26c",
+    "refs": [
+     {
+      "certainty": "explicit",
+      "element_id": "P3",
+      "external": false,
+      "missing": false,
+      "provenance": {
+       "locator": "word/document.xml#block5",
+       "source": "transporte_cuestionario.docx"
+      },
+      "side": "design"
+     },
+     {
+      "certainty": "inferred",
+      "element_id": "(sin pareja de P3)",
+      "external": false,
+      "missing": true,
+      "provenance": null,
+      "side": "program"
+     }
+    ],
+    "scope": "pair",
+    "severity": "alta",
+    "suggested_check": "Confirmar si falta en el programa o declarar la pareja."
+   },
+   {
+    "category": "item_faltante_o_sobrante",
+    "check_id": "pair:solo_programa",
+    "depends_on_unconfirmed": [],
+    "evidence_level": "no_verificable",
+    "explanation": "La variable P5 del programa no tiene pareja en el diseño (SOLO_PROGRAMA).",
+    "heuristic": false,
+    "id": "f713fcfab43a658764905b90f577c0d20dab13ad38efd2d4a3c38c6d6ce88f9a",
+    "refs": [
+     {
+      "certainty": "inferred",
+      "element_id": "P5",
+      "external": false,
+      "missing": false,
+      "provenance": {
+       "locator": "$.paginas[3].pregs[0].vars[0]",
+       "source": "transporte_programa_discrepante.gim"
+      },
+      "side": "program"
+     },
+     {
+      "certainty": "inferred",
+      "element_id": "(sin pareja de P5)",
+      "external": false,
+      "missing": true,
+      "provenance": null,
+      "side": "design"
+     }
+    ],
+    "scope": "pair",
+    "severity": "alta",
+    "suggested_check": "Confirmar si sobra en el programa o declarar la pareja."
+   },
+   {
+    "category": "codigos",
+    "check_id": "pair:codigo_no_respuesta",
+    "depends_on_unconfirmed": [],
+    "evidence_level": "sospecha",
+    "explanation": "El código 9 es de no respuesta en un solo lado (P1 / P1). En el programa, False significa «sin evidencia».",
+    "heuristic": false,
+    "id": "83e4a2d0d576253826f6ff87dc189128118573aaa9b5ac2dcc239ad728091f7d",
+    "refs": [
+     {
+      "certainty": "explicit",
+      "element_id": "P1#opt:9",
+      "external": false,
+      "missing": false,
+      "provenance": null,
+      "side": "design"
+     },
+     {
+      "certainty": "inferred",
+      "element_id": "P1#opt:9",
+      "external": false,
+      "missing": false,
+      "provenance": null,
+      "side": "program"
+     }
+    ],
+    "scope": "pair",
+    "severity": "media",
+    "suggested_check": null
+   },
+   {
+    "category": "codigos",
+    "check_id": "pair:codigos",
+    "depends_on_unconfirmed": [],
+    "evidence_level": "sospecha",
+    "explanation": "El código 3 existe en el diseño (P2 / P2) y no en el otro lado.",
+    "heuristic": false,
+    "id": "346b7ef237ceea455d8b7332292c950863837a755c3faae689cb09d5280fd175",
+    "refs": [
+     {
+      "certainty": "explicit",
+      "element_id": "P2#opt:3",
+      "external": false,
+      "missing": false,
+      "provenance": null,
+      "side": "design"
+     },
+     {
+      "certainty": "inferred",
+      "element_id": "P2",
+      "external": false,
+      "missing": false,
+      "provenance": {
+       "locator": "$.paginas[1].pregs[0].vars[0]",
+       "source": "transporte_programa_discrepante.gim"
+      },
+      "side": "program"
+     }
+    ],
+    "scope": "pair",
+    "severity": "alta",
+    "suggested_check": null
+   },
+   {
+    "category": "codigos",
+    "check_id": "pair:codigos",
+    "depends_on_unconfirmed": [],
+    "evidence_level": "error_comprobado",
+    "explanation": "El código 4 existe en el programa (P2 / P2) y no en el otro lado.",
+    "heuristic": false,
+    "id": "04129ce64ef6247d3ba51ca2230482c04b07cf2cca25ab3fad4babbc82326804",
+    "refs": [
+     {
+      "certainty": "explicit",
+      "element_id": "P2#opt:4",
+      "external": false,
+      "missing": false,
+      "provenance": null,
+      "side": "program"
+     },
+     {
+      "certainty": "explicit",
+      "element_id": "P2",
+      "external": false,
+      "missing": false,
+      "provenance": {
+       "locator": "word/document.xml#block3",
+       "source": "transporte_cuestionario.docx"
+      },
+      "side": "design"
+     }
+    ],
+    "scope": "pair",
+    "severity": "alta",
+    "suggested_check": null
+   },
+   {
+    "category": "filtro",
+    "check_id": "pair:filtro",
+    "depends_on_unconfirmed": [
+     "design:universe",
+     "filtros"
+    ],
+    "evidence_level": "sospecha",
+    "explanation": "presentación de P2 / P2: las condiciones difieren. Contraejemplo {'V001': 'codigo:1'}: diseño V, programa F.",
+    "heuristic": false,
+    "id": "3fdc719e2f1977b8412ad2a9a6dc0929e72dec8c7c43e3d0d6fe88891d3df184",
+    "refs": [
+     {
+      "certainty": "inferred",
+      "element_id": "P2#universe",
+      "external": false,
+      "missing": false,
+      "provenance": {
+       "locator": "word/document.xml#block3",
+       "source": "transporte_cuestionario.docx"
+      },
+      "side": "design"
+     },
+     {
+      "certainty": "inferred",
+      "element_id": "P2/filtros[0]",
+      "external": false,
+      "missing": false,
+      "provenance": {
+       "locator": "$.paginas[1].pregs[0].vars[0]",
+       "source": "transporte_programa_discrepante.gim"
+      },
+      "side": "program"
+     }
+    ],
+    "scope": "pair",
+    "severity": "alta",
+    "suggested_check": "Revisar la condición en ambos documentos."
+   },
+   {
+    "category": "opciones",
+    "check_id": "pair:opciones",
+    "depends_on_unconfirmed": [],
+    "evidence_level": "error_comprobado",
+    "explanation": "La etiqueta del código 1 difiere entre P4 y P4.",
+    "heuristic": false,
+    "id": "56f140f54e18009e9fcc625d49582e2db8cde1ccc9cc9488831dcb204455ab1f",
+    "refs": [
+     {
+      "certainty": "explicit",
+      "element_id": "P4#opt:1",
+      "external": false,
+      "missing": false,
+      "provenance": null,
+      "side": "design"
+     },
+     {
+      "certainty": "explicit",
+      "element_id": "P4#opt:1",
+      "external": false,
+      "missing": false,
+      "provenance": null,
+      "side": "program"
+     }
+    ],
+    "scope": "pair",
+    "severity": "media",
+    "suggested_check": null
+   }
+  ],
+  "findings_by_level": {
+   "error_comprobado": 2,
+   "no_verificable": 2,
+   "sospecha": 3
+  },
+  "identity": {
+   "backing": "human_declaration",
+   "comparison_enabled": true,
+   "matching_level": "alto",
+   "observation_review": "resolved_by_human_declaration",
+   "source": "human_declaration",
+   "verdict": "MISMO"
+  },
+  "only_design": [
+   "P3"
+  ],
+  "only_program": [
+   "P5"
+  ],
+  "pairs": [
+   {
+    "design": "P1",
+    "program": "P1",
+    "state": "declarada"
+   },
+   {
+    "design": "P2",
+    "program": "P2",
+    "state": "declarada"
+   },
+   {
+    "design": "P4",
+    "program": "P4",
+    "state": "declarada"
+   }
+  ],
+  "result": "CORRESPONDEN"
+ },
+ "differential": {
+  "HIPOTETICO": true,
+  "SINTETICO": true,
+  "agent_statuses": {
+   "design": {
+    "completado": 200
+   },
+   "program": {
+    "completado": 200
+   }
+  },
+  "agents": 200,
+  "comparable": {
+   "P1|P1": {
+    "comparable": 200,
+    "design_undecided": 0,
+    "program_undecided": 0
+   },
+   "P2|P2": {
+    "comparable": 200,
+    "design_undecided": 0,
+    "program_undecided": 0
+   },
+   "P4|P4": {
+    "comparable": 200,
+    "design_undecided": 0,
+    "program_undecided": 0
+   }
+  },
+  "declared_pairs": [
+   {
+    "design": "P1",
+    "program": "P1"
+   },
+   {
+    "design": "P2",
+    "program": "P2"
+   },
+   {
+    "design": "P4",
+    "program": "P4"
+   }
+  ],
+  "disclaimer": "Simulación diferencial con datos sintéticos: compara los recorridos del diseño y del programa con las mismas respuestas, solo donde ambos lados están decididos. No es una observación ni una estimación, y no prueba qué hará el programa con encuestados reales.",
+  "divergences": [
+   {
+    "HIPOTETICO": true,
+    "agents": 60,
+    "category": "presentacion",
+    "confirmed_agents": 0,
+    "design": "P2",
+    "design_state": "presentada",
+    "evidence": "hipotetica",
+    "example_agents": [
+     6,
+     13,
+     16,
+     22,
+     27
+    ],
+    "hypotheses": [
+     "design:universe",
+     "gim:filtros",
+     "gim:saltos"
+    ],
+    "hypothetical_agents": 60,
+    "program": "P2",
+    "program_state": "no_presentada"
+   }
+  ],
+  "divergences_by_evidence": {
+   "hipotetica": 1
+  },
+  "enabled": true,
+  "mode": "experimental",
+  "reason": null,
+  "scenario": {
+   "assumptions": "distribución uniforme sobre las opciones mostradas; no es una estimación poblacional",
+   "label": "SINTÉTICO – PRUEBA DE PROCESAMIENTO (escenario artificial uniforme)",
+   "name": "escenario artificial uniforme",
+   "sha256": null
+  },
+  "seed": 2026,
+  "transfer_failures": 0
+ },
+ "files": {
+  "SINTETICO_HIPOTETICO_consolidado.md": "9574f923d45dcbb40802acafee9783347e819cf26f344a093f849a1e11b0a990",
+  "SINTETICO_HIPOTETICO_consolidado.xlsx": "86ff2fd537e80b04302edaffb0c20ee89a8ccf5d04708fbdee647c7bda8cb166",
+  "SINTETICO_HIPOTETICO_diferencial_agentes.csv": "73f25528aed758e77a68da87994a2e23c74ce384f0dfaa749e9d94a9f3ccf333"
+ },
+ "inputs": {
+  "design": {
+   "name": "transporte_cuestionario.docx",
+   "sha256": "ccf0a6e248c6e5fef1f0a36dd554deeb4f0a49945a189ecf837f8efb8f0aacde"
+  },
+  "program": {
+   "name": "transporte_programa_discrepante.gim",
+   "sha256": "31890ad5ab8be5f2e447cf8b32a08e6df845f83595a555a025ef07a24403b1fe"
+  }
+ },
+ "limitations": [
+  "Todas las asignaciones de identificadores y todas las hipótesis GIM están en inferred: sin declaración humana vigente no se habilita la comparación.",
+  "Las reglas GIM dependen de semántica no confirmada (D15): sus hallazgos son, como máximo, sospecha.",
+  "«Equivalente» exige pareja declarada y comparación habilitada (v1.1, §3.2 y §5.1); con valores vacíos sin política confirmada la enumeración da U y el resultado es no verificable.",
+  "Los umbrales de emparejamiento están calibrados con pares sintéticos (v1.0, 7.2).",
+  "Las salidas no contienen texto del instrumento salvo con --include-text.",
+  "Validaciones (controles) y cálculos no se comparan en esta entrega.",
+  "Las incidencias GIM no producen terminaciones (v1.1, §2.2): la terminación solo se compara como no verificable.",
+  "Los datos de la simulación diferencial son sintéticos: no son observaciones ni estimaciones.",
+  "Solo se comparan parejas declaradas con comparación habilitada, y solo donde ambos lados decidieron el recorrido.",
+  "En modo estándar las reglas GIM (todas inferidas) interrumpen al agente del programa en la primera regla de flujo (v1.1, §7.5): la cobertura comparable puede ser pequeña.",
+  "En modo experimental las divergencias de agentes que usaron hipótesis se marcan HIPOTÉTICO; ninguna confirma la semántica de esas reglas.",
+  "Una divergencia es HIPOTÉTICA solo si algún lado usó una hipótesis hasta decidir esa pregunta; se informa la lista exacta.",
+  "Un código oculto en el programa por una regla de presentación de opciones se informa como opcion_oculta, nunca como código inexistente.",
+  "El árbol de recorridos y las divergencias no prueban qué hará el programa con encuestados reales."
+ ],
+ "privacy": {
+  "include_text": false,
+  "key_fingerprint": null,
+  "mode": "none",
+  "policy": "AUT-1: informes minimizados; HMAC-SHA256 solo con clave local; sin clave, sin hash"
+ },
+ "survey_simulator": {
+  "norma": "especificación v1.0 + documento de cambios v1.1",
+  "report": "consolidado"
+ },
+ "versions": {
+  "correspondence": "0.1.0",
+  "expr_parser": "0.1.0",
+  "gim_adapter": "0.3.0",
+  "ruleset": "1.1.0",
+  "simulator": "0.1.0",
+  "word_adapter": "0.4.0"
+ }
+}

@@ -1,0 +1,103 @@
+# Léxico por defecto para cuestionarios Word en español.
+#
+# Define cómo se reconocen etiquetas de pregunta, instrucciones, tipos de
+# respuesta, navegación y terminaciones. Todo es configurable: para otra
+# convención de redacción se crea otro archivo con la misma estructura
+# (D06). Ninguna regla de este archivo describe un cuestionario concreto.
+#
+# Marcadores que se sustituyen dentro de los patrones de navegación:
+#   {label}  -> label_token
+#   {codes}  -> codes_token
+
+name: default_es
+version: "1.0"
+
+# Patrones de etiqueta de pregunta al inicio de un párrafo. Deben tener un
+# grupo con nombre "label". Se prueban en orden.
+label_patterns:
+  # P1. / A4a. / F1.GEN / F5.1. / H7.  (letras + número, sufijos opcionales)
+  - '^(?P<label>[A-Z]{1,4}[0-9]+[a-z]?(?:\.[0-9]+)*(?:\.[A-ZÁÉÍÓÚÑ]{2,})?)(?:[.:)]\s*|\s+|$)'
+  # CONSENTIMIENTO. / REVISITA_DATOS:  (palabra en mayúsculas seguida de . o :)
+  - '^(?P<label>[A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ0-9_]{3,})[.:](?:\s+|$)'
+
+# Palabras que nunca son etiquetas de pregunta, aunque encajen en un patrón.
+label_exclude: [ENC, PROG, PRG, NOTA, NOTE, OBS, OBSERVACION, OBSERVACIÓN, INSTRUCCION, INSTRUCCIÓN]
+
+# Párrafos con numeración automática de Word como preguntas (p. ej. "1. ¿...?").
+# Desactivado por defecto: las listas numeradas también se usan para opciones
+# o explicaciones.
+numbered_paragraphs_as_items: false
+
+# Etiquetas de instrucción. La clave es el tipo de instrucción de la IR.
+instruction_tags:
+  interviewer: [ENC]
+  programmer: [PROG, PRG]
+  display: []
+
+# Tipos de respuesta. Se buscan solo en instrucciones de programación.
+response_types:
+  RU: single
+  RM: multiple
+  RA: text
+
+# Etiquetas de opción que indican un código de no-respuesta.
+missing_code_labels:
+  - '^NS\s*/\s*NR\b'
+  - '^NO\s+SABE\s*/?\s*NO\s+RESPONDE\b'
+  - '^NO\s+SABE\b'
+  - '^NO\s+RESPONDE\b'
+
+# Marcas que indican que la opción abre un campo de texto.
+opens_text_markers:
+  - '¿\s*CU[AÁ]L\s*\?'
+  - '\bOPEN\s+BOX\b'
+  - '\bESPECIFIQUE\b'
+
+# Marcas que indican una variable calculada u oculta (no se pregunta).
+calculated_item_markers:
+  - '\bVARIABLE\s+OCULTA\b'
+
+label_token: '[A-Z]{1,4}[0-9]+[a-z]?(?:\.[0-9]+)*(?:\.[A-ZÁÉÍÓÚÑ]{2,})?|[A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ0-9_]{2,}'
+codes_token: '[0-9]+(?:\s*(?:,|\by\b|\bo\b|\be\b|\bu\b)\s*[0-9]+)*'
+
+navigation:
+  # Continuar sin salto.
+  continue:
+    - '^\s*CONTIN[UÚ](?:E|AR)\s*\.?\s*$'
+  # Salto a una pregunta.
+  goto:
+    - '\b(?:CONTIN[UÚ](?:E|AR)\s+(?:CON|EN)|PASE\s+A|PASAR\s+A|VAYA\s+A|IR\s+A|SALTE\s+A)\s+(?P<target>{label})\b'
+  # Terminación, con incidencia opcional entre corchetes.
+  terminate:
+    - '\bTERMIN(?:E|AR)\b(?:\s+Y\s+REGISTRE\s+INCIDENCIA\s*\[\s*(?P<termination>[^\]]+?)\s*\])?'
+  # Mostrar otra pregunta si en una pregunta se eligieron ciertos códigos.
+  show_if:
+    - '\bSI\s+EN\s+(?P<source>{label})\s+(?:SELECCION[OÓ]|ELIGI[OÓ]|RESPONDI[OÓ]|MARC[OÓ])?\s*(?:EL\s+)?C[OÓ]D(?:IGO)?S?\.?\s+(?P<codes>{codes})\s*,?\s+(?:MUESTRE|PREGUNTE|HAGA|APLIQUE)\s+(?P<target>{label})\b'
+  # La pregunta actual aplica solo si en otra pregunta se eligieron ciertos códigos.
+  applies_if:
+    - '\bAPLI(?:QUE|CA)\s+SI\s+EN\s+(?P<source>{label})\s+(?:SELECCION[OÓ]\s+)?C[OÓ]D(?:IGO)?S?\.?\s+(?P<codes>{codes})'
+
+# Palabras que sugieren navegación. Si aparecen en una instrucción de
+# programación y ningún patrón coincide, el texto queda como no resuelto.
+navigation_keywords:
+  - '\bSI\s+EN\b'
+  - '\bMUESTRE\b'
+  - '\bPASE\b'
+  - '\bSALTE\b'
+  - '\bTERMIN(?:E|AR)\b'
+  - '\bCONTIN[UÚ](?:E|AR)\b'
+  - '\bAPLI(?:QUE|CA)\b'
+
+# Incidencias de terminación reconocidas y su tipo en la IR. Las que no
+# aparecen aquí quedan como no resueltas (decisión pendiente).
+termination_kinds:
+  RECHAZO: rechazo
+  NO APLICA: no_aplica
+  REVISITA: revisita
+  COMPLETA: completa
+
+table_roles:
+  code_cell: '^[0-9]{1,4}$'
+  version_cell: '^V[0-9]{1,3}$'
+  recode_header: '\bC[OÓ]D(?:IGO)?\b'
+  section_header_max_chars: 60

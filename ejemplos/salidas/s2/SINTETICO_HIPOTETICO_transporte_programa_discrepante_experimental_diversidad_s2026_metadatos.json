@@ -1,0 +1,104 @@
+{
+ "HIPOTETICO": true,
+ "SINTETICO": true,
+ "aviso": "Datos sintéticos generados por simulación. No son observaciones, resultados ni estimaciones reales.",
+ "config_sha256": {
+  "equivalences_sha256": "33c5111ab35c32f89a9486be7b536571980f441e0423c31f54d8265780093107",
+  "scenario_sha256": null
+ },
+ "files": {
+  "SINTETICO_HIPOTETICO_transporte_programa_discrepante_experimental_diversidad_s2026.xlsx": "00f7b5aa3f4b6acd456576006fc9db1e538b2f3e992452ff929b720b91b3b320",
+  "SINTETICO_HIPOTETICO_transporte_programa_discrepante_experimental_diversidad_s2026_agentes.csv": "20ef2a3babe40171532fc8d1ce05701dc9e58640d3b6b9c3ffcc5276dca4c321",
+  "SINTETICO_HIPOTETICO_transporte_programa_discrepante_experimental_diversidad_s2026_datos.csv": "73fbc7b244bbe64fae4d8e0f02cfb0c99255735b8a5cb8668631f59f27419f67",
+  "SINTETICO_HIPOTETICO_transporte_programa_discrepante_experimental_diversidad_s2026_estados.csv": "3e3b5ceff178e0df245392402d32bf11463a3f4be51717ae940f6c72b06a2874",
+  "SINTETICO_HIPOTETICO_transporte_programa_discrepante_experimental_diversidad_s2026_recorridos.json": "82cc1ea28fcb0ccf97158d33de7dea6c00e3345e7d1634780c741efb056103d4"
+ },
+ "include_text": false,
+ "instrument": {
+  "name": "transporte_programa_discrepante.gim",
+  "role": "program",
+  "sha256": "31890ad5ab8be5f2e447cf8b32a08e6df845f83595a555a025ef07a24403b1fe"
+ },
+ "label": "SINTÉTICO – PRUEBA DE PROCESAMIENTO (escenario artificial uniforme)",
+ "mode": "experimental",
+ "scenario": {
+  "artificial": true,
+  "assumptions": "distribución uniforme sobre las opciones mostradas; no es una estimación poblacional",
+  "mode": "diversidad",
+  "name": "escenario artificial uniforme",
+  "sha256": null
+ },
+ "seed": 2026,
+ "seed_derivation": "semilla del agente = primeros 16 hex de SHA-256('survey-simulator:<semilla>:<índice>')",
+ "states": {
+  "export_only": [
+   "NO_SIMULADO",
+   "NO_CALCULADO"
+  ],
+  "ir": [
+   "VALID",
+   "MISSING_CODE",
+   "UNANSWERED",
+   "NOT_APPLICABLE",
+   "UNKNOWN_TO_EVALUATOR"
+  ]
+ },
+ "summary": {
+  "agents": 100,
+  "coverage": {
+   "items": 4,
+   "never_reached": [
+    "P2"
+   ],
+   "reached_by_some_agent": 3
+  },
+  "hypotheses_used": [
+   "gim:filtros",
+   "gim:saltos"
+  ],
+  "interruption_points": {},
+  "interruption_reasons": {},
+  "rules_executed": {
+   "P1/saltos[0]": 100,
+   "P2/filtros[0]": 62
+  },
+  "rules_not_executed": {},
+  "sensitive_candidates": [],
+  "sensitive_declared": [],
+  "status": {
+   "completado": 100
+  },
+  "tree_counts": {
+   "rama_demostrada": 0,
+   "rama_estructural_no_verificada": 4
+  }
+ },
+ "survey_simulator": {
+  "norma": "especificación v1.0 + documento de cambios v1.1",
+  "report": "simulacion",
+  "simulator_version": "0.1.0"
+ },
+ "tree": {
+  "counts": {
+   "rama_demostrada": 0,
+   "rama_estructural_no_verificada": 4
+  },
+  "disclaimer": "El árbol describe alternativas estructurales del instrumento. No prueba que esos recorridos ocurran realmente en el programa. Una rama_demostrada solo demuestra que es satisfacible según las reglas explícitas del instrumento, no que el programa la ejecute así.",
+  "limits": {
+   "max_nodes": 2000,
+   "truncated": false,
+   "witness_limit": 10000
+  }
+ },
+ "versions": {
+  "correspondence": "0.1.0",
+  "expr_parser": "0.1.0",
+  "gim_adapter": "0.3.0",
+  "ruleset": "1.1.0",
+  "simulator": "0.1.0",
+  "word_adapter": "0.4.0"
+ },
+ "warnings": [
+  "HIPOTÉTICO: se ejecutaron reglas inferidas como hipótesis; ningún resultado confirma su semántica."
+ ]
+}

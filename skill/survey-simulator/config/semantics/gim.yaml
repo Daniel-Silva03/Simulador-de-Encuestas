@@ -1,0 +1,80 @@
+# Registro de semántica GIM (especificación v1.0, sección 6, D09 y D15).
+#
+# Cada entrada es una HIPÓTESIS obtenida por ingeniería inversa. Ninguna está
+# confirmada: todas tienen status: inferred, confirmation_required: true y
+# confirmation: null. Las reglas y los hallazgos que dependan de ellas
+# heredan certainty: inferred como mínimo.
+#
+# Para pasar una entrada a status: confirmed hace falta el bloque
+# "confirmation" completo (documentación del proveedor o confirmación de una
+# persona responsable). El cargador rechaza cualquier confirmación incompleta.
+#
+# Las evidencias citan el archivo de referencia de forma anónima: el archivo
+# es confidencial y no se incluye en el repositorio.
+
+version: "1.0"
+
+entries:
+  tip:
+    meaning:
+      "1": single
+      "2": multiple
+      "3": numeric
+      "4": numeric
+      "5": text
+      "6": date
+      "7": time
+    status: inferred
+    confirmation_required: true
+    evidence:
+      - kind: observed_case
+        ref: "reference_file:tip-multiple-case"
+        note: "Una variable tip=2 cuyo texto pide hasta dos opciones"
+      - kind: observed_case
+        ref: "reference_file:tip-date-time-system-vars"
+        note: "Variables de sistema de fecha con tip=6 y de hora con tip=7"
+    confirmation: null
+
+  filtros:
+    meaning: exclude_item_when_condition_true
+    status: inferred
+    confirmation_required: true
+    evidence:
+      - kind: observed_case
+        ref: "reference_file:filtros-negated-other-case"
+        note: "Consistente con la hipótesis; no la confirma"
+    confirmation: null
+
+  ord:
+    meaning:
+      rotate_options_when_ord: 2
+      anchored_option_when_fijo: 1
+    status: inferred
+    confirmation_required: true
+    evidence:
+      - kind: observed_case
+        ref: "reference_file:ord-2-on-rotate-marked-questions"
+        note: "ord=2 aparece justo en las preguntas marcadas ROTAR en el diseño"
+    confirmation: null
+
+  acc:
+    meaning:
+      "0": block
+      "1": warn
+    status: inferred
+    confirmation_required: true
+    evidence:
+      - kind: observed_case
+        ref: "reference_file:acc-1-warning-control"
+        note: "Un control con acc=1 muestra un aviso y deja continuar"
+    confirmation: null
+
+  empty_value_comparison:
+    meaning: per_state_and_operator_family
+    entries:
+      UNANSWERED: {eq: unknown, ne: unknown, order: unknown, functions: unknown}
+      NOT_APPLICABLE: {eq: unknown, ne: unknown, order: unknown, functions: unknown}
+    status: inferred
+    confirmation_required: true
+    evidence: []
+    confirmation: null

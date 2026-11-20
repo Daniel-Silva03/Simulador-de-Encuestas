@@ -1,0 +1,133 @@
+{
+ "HIPOTETICO": false,
+ "SINTETICO": true,
+ "counts": {
+  "rama_demostrada": 2,
+  "rama_estructural_no_verificada": 2
+ },
+ "disclaimer": "El árbol describe alternativas estructurales del instrumento. No prueba que esos recorridos ocurran realmente en el programa. Una rama_demostrada solo demuestra que es satisfacible según las reglas explícitas del instrumento, no que el programa la ejecute así.",
+ "limits": {
+  "max_nodes": 2000,
+  "truncated": false,
+  "witness_limit": 10000
+ },
+ "mode": "estandar",
+ "nodes": [
+  {
+   "branch": "inicio",
+   "decision": "inicio",
+   "end": null,
+   "hypotheses": [],
+   "hypothetical": false,
+   "id": 0,
+   "item": null,
+   "klass": null,
+   "parent": null,
+   "reasons": [],
+   "witness": null
+  },
+  {
+   "branch": "opcion 2 → goto:P4",
+   "decision": "navegacion",
+   "end": null,
+   "hypotheses": [],
+   "hypothetical": false,
+   "id": 1,
+   "item": "P1",
+   "klass": "rama_demostrada",
+   "parent": 0,
+   "reasons": [],
+   "witness": {
+    "P1": "codigo:2"
+   }
+  },
+  {
+   "branch": "fin del instrumento",
+   "decision": "fin",
+   "end": "fin",
+   "hypotheses": [],
+   "hypothetical": false,
+   "id": 2,
+   "item": null,
+   "klass": null,
+   "parent": 1,
+   "reasons": [],
+   "witness": null
+  },
+  {
+   "branch": "continúa",
+   "decision": "navegacion",
+   "end": null,
+   "hypotheses": [],
+   "hypothetical": false,
+   "id": 3,
+   "item": "P1",
+   "klass": "rama_demostrada",
+   "parent": 0,
+   "reasons": [],
+   "witness": {
+    "P1": "codigo:1"
+   }
+  },
+  {
+   "branch": "presentada",
+   "decision": "presentacion",
+   "end": null,
+   "hypotheses": [
+    "design:universe"
+   ],
+   "hypothetical": false,
+   "id": 4,
+   "item": "P2",
+   "klass": "rama_estructural_no_verificada",
+   "parent": 3,
+   "reasons": [
+    "regla_no_explicita"
+   ],
+   "witness": null
+  },
+  {
+   "branch": "fin del instrumento",
+   "decision": "fin",
+   "end": "fin",
+   "hypotheses": [],
+   "hypothetical": false,
+   "id": 5,
+   "item": null,
+   "klass": null,
+   "parent": 4,
+   "reasons": [],
+   "witness": null
+  },
+  {
+   "branch": "excluida",
+   "decision": "presentacion",
+   "end": null,
+   "hypotheses": [
+    "design:universe"
+   ],
+   "hypothetical": false,
+   "id": 6,
+   "item": "P2",
+   "klass": "rama_estructural_no_verificada",
+   "parent": 3,
+   "reasons": [
+    "regla_no_explicita"
+   ],
+   "witness": null
+  },
+  {
+   "branch": "fin del instrumento",
+   "decision": "fin",
+   "end": "fin",
+   "hypotheses": [],
+   "hypothetical": false,
+   "id": 7,
+   "item": null,
+   "klass": null,
+   "parent": 6,
+   "reasons": [],
+   "witness": null
+  }
+ ]
+}

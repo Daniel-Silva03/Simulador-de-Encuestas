@@ -1,0 +1,45 @@
+record_type: equivalencias
+binding:
+  inputs:
+    design_sha256: ccf0a6e248c6e5fef1f0a36dd554deeb4f0a49945a189ecf837f8efb8f0aacde
+    program_sha256: 31890ad5ab8be5f2e447cf8b32a08e6df845f83595a555a025ef07a24403b1fe
+  config:
+    correspondence_yaml_sha256: 1816c949bcabe6601e642c8ece63c129d4b506f9bea2a512ea1b556c23868a94
+    semantics_sha256: 99960a4af968cd2cbe558e3e0f5994a83de6a073aa0930a77ab15ec43bfb7363
+    lexicon_sha256: 8f78f4af867cb422fa5df721ffd335a65b06ff304acd5edd77ff5aba826df607
+    ruleset_version: 1.1.0
+  versions:
+    word_adapter: 0.4.0
+    gim_adapter: 0.3.0
+    expr_parser: 0.1.0
+    correspondence: 0.1.0
+variables:
+- lado: program
+  variable: P1
+  pares:
+  - texto: '1'
+    literal: 1
+  - texto: '2'
+    literal: 2
+  - texto: '9'
+    literal: 9
+- lado: program
+  variable: P2
+  pares:
+  - texto: '1'
+    literal: 1
+  - texto: '2'
+    literal: 2
+  - texto: '4'
+    literal: 4
+- lado: program
+  variable: P4
+  pares:
+  - texto: '1'
+    literal: 1
+  - texto: '2'
+    literal: 2
+  - texto: '3'
+    literal: 3
+  - texto: '4'
+    literal: 4
